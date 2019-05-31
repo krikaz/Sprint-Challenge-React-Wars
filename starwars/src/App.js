@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
+import uuid from 'uuid';
+import Characters from './components/Characters';
+import getSpecies from './components/Species';
 import './App.css';
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      starwarsChars: []
+      starwarsChars: [],
+      species: ''
     };
   }
 
@@ -29,10 +33,31 @@ class App extends Component {
       });
   };
 
+  // getSpecies = URL => {
+  //   fetch(URL)
+  //   .then(res => {
+  //     return res.json();
+  //   })
+  //   .then(data => {
+  //     this.setState({ species: data.name });
+  //   })
+  // }
+
   render() {
     return (
       <div className="App">
         <h1 className="Header">React Wars</h1>
+        <div className="allCards">
+          {this.state.starwarsChars.map(charObj => (
+            <Characters
+              key={uuid()}
+              name={charObj.name}
+              birth_year={charObj.birth_year}
+              species={getSpecies(charObj.species[0])}
+              test={charObj.species[0]}
+            />
+          ))}
+        </div>
       </div>
     );
   }
