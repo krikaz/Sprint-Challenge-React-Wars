@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import uuid from 'uuid';
 import Characters from './components/Characters';
 import getSpecies from './components/Species';
 import './App.css';
@@ -49,7 +50,7 @@ class App extends Component {
         <div className="allCards">
           {this.state.starwarsChars.map(charObj => (
             <Characters
-              key={Date.now()}
+              key={uuid()}
               name={charObj.name}
               birth_year={charObj.birth_year}
               species={getSpecies(charObj.species[0])}

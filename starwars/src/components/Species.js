@@ -6,6 +6,7 @@ export default function getSpecies(URL) {
     })
     .then(data => {
       result = data.name;
+      console.log(result);
     });
   return result;
 }

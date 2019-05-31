@@ -7,6 +7,7 @@ export default function Characters({ name, birth_year, species, test }) {
       <p>{name}</p>
       <p>born on {birth_year}</p>
       <p>{species}</p>
+      <p>{test}</p>
     </div>
   );
 }
