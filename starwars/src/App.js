@@ -30,17 +30,16 @@ class App extends Component {
       });
   };
 
-  // const cons = <Characters char={charObj}/>;
-  // const mapping = this.state.starwarsChars.map(charObj => {
-  //   <Characters char={charObj}/>
-  // });
 
   render() {
     return (
       <div className="App">
         <h1 className="Header">React Wars</h1>
-        {this.state.starwarsChars.map(charObj => <Characters char={charObj} />
-        )}
+        <div className="allCards">
+          {this.state.starwarsChars.map(charObj => (
+            <Characters name={charObj.name} birth_year={charObj.birth_year} />
+          ))}
+        </div>
       </div>
     );
   }
